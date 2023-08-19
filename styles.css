@@ -1,0 +1,48 @@
+.navbar-logo{
+    height: 120px;
+    width: 120px;
+}
+.navbar-logo>img{
+    width: 100%;
+    border-radius: 50%;
+}
+.navbar-nav{
+    margin-left: 55%;
+}
+.card-header{
+    height: 200px;
+    width: 100%;
+}
+.card-header>img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+#main{
+    margin-top: 20px;
+}
+.card{
+    margin-top: 20px;
+}
+.card:hover{
+    box-shadow:1px 1px 8px #d4ecff;
+    background-color: #f9fdff;
+    transform: translateY(-2px);
+}
+.card-content{
+    padding: 12px;
+}
+.news-source{
+    margin-block:12px;
+}
+@media screen and (max-width:600px){
+    .navbar-nav{
+        margin: 0%;
+    }
+    ul.navbar-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+    
