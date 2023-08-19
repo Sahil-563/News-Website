@@ -1,7 +1,7 @@
 const API_key="6b36743150ea426880d1f7200e34c5a5"
 const url = "https://newsapi.org/v2/everything?q="
 
-window.addEventListener("load",fetchnews("Rusia"))
+window.addEventListener("load",fetchnews("India"))
 
 
 async function fetchnews(query){
@@ -35,5 +35,14 @@ function bindData(articles){
 
 function filldata(cardClone, element){
     const newsImg = cardClone.querySelector("#news-img");
+    const newsTitle = cardClone.querySelector("#news-title");
+    const newsSource = cardClone.querySelector("#news-source");
+    const newsDesc = cardClone.querySelector("#news-desc");
     newsImg.src = element.urlToImage;
+    newsTitle.innerHTML = element.title;
+    newsDesc.innerHTML = element.description;
+    newsSource.innerHTML = element.source.name
+    
+
+    
 }
