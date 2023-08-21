@@ -14,8 +14,6 @@ async function fetchnews(query){
         const data = await response.json()
         console.log(data);
         bindData(data.articles);
-
-        
     } catch (error) {
         console.log(error);
     }
@@ -24,8 +22,8 @@ function bindData(articles){
     const row = document.getElementById("Row");
     const cardsContainer= document.getElementById("cards-container");
     row.innerHTML='';
-    console.log(cardsContainer);
-    console.log(row);
+    // console.log(cardsContainer);
+    // console.log(row);
    
     const cards = document.getElementById("cards");
     // console.log(cards);
@@ -34,9 +32,12 @@ function bindData(articles){
         if(!element.urlToImage){
             return;
         }
-        const cardClone = cards.cloneNode(true); 
+        const cardClone = cards.cloneNode(true);
+        const router = document.getElementById("routing");
+        router.setAttribute("href",element.url)
         // console.log(cardClone);
         filldata(cardClone,element)
+        // console.log(cardClone);
         row.appendChild(cardClone);
     });
 }
@@ -50,4 +51,13 @@ function filldata(cardClone, element){
     newsTitle.innerHTML = element.title;
     newsDesc.innerHTML = element.description;
     newsSource.innerHTML = element.source.name
+    
 }
+function onNavItemClick(id){
+    fetchnews(id);
+}
+
+// 
+// router.addEventListener("click", (e)=>{
+//     e.target.href=
+// })

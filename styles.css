@@ -23,6 +23,10 @@
 }
 .card{
     margin-top: 20px;
+    cursor: pointer;
+}
+#routing{
+    text-decoration: none;
 }
 .card:hover{
     box-shadow:1px 1px 8px #d4ecff;
@@ -34,6 +38,9 @@
 }
 .news-source{
     margin-block:12px;
+}
+.nav-item.active{
+    color: red;
 }
 @media screen and (max-width:600px){
     .navbar-nav{

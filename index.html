@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">IPL</a>
+                        <a class="nav-link active" aria-current="page" href="#"  onclick="onNavItemClick('ipl')">IPL</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Fianance</a>
+                        <a class="nav-link" href="#" onclick="onNavItemClick('Finance')">Fianance</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Politics</a>
+                        <a class="nav-link" href="#" id="Politics" onclick="onNavItemClick('politics')">Politics</a>
                     </li>
 
                 </ul>
@@ -53,18 +53,24 @@
     
 
     <!-- <template id="tempalte-news-card"> -->
-        <div class="col-md-4 col-sm-12" id="cards">
-            <div class="card">
-                <div class="card-header">
-                    <img src="./assets/logo-brand.jpg" alt="" id="news-img">
-                </div>
-                <div class="card-content">
-                    <h3 id="news-title">This is title</h3>
-                    <h6 id="news-source">End Gadget 26/08/2023</h6>
-                    <p class="news-desc" id="news-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, est.</p>
-                </div>
+    
+            <div class="col-md-4 col-sm-12" id="cards">
+                <a href="" id="routing">
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="./assets/logo-brand.jpg" alt="" id="news-img">
+                        </div>
+                        <div class="card-content">
+                            <h3 id="news-title">This is title</h3>
+                            <h6 id="news-source">End Gadget 26/08/2023</h6>
+                            <p class="news-desc" id="news-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, est.</p>
+                        </div>
+                    </div>
+                </a>
+                
             </div>
-        </div>
+    
+        
     <!-- </template> -->
 
     <script src="script.js"></script>
