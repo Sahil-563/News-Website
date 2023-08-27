@@ -7,6 +7,11 @@ searchBar.addEventListener("submit",function(e){
     console.log(userInput);
     window.addEventListener("load",fetchnews(userInput))
 })
+window.addEventListener("load",fetchnews('world'));
+const logo = document.querySelector('#logo');
+logo.addEventListener("click",function(e){
+    window.addEventListener("load",fetchnews('world'));
+})
 
 async function fetchnews(query){
     try {
@@ -20,39 +25,49 @@ async function fetchnews(query){
 }
 function bindData(articles){
     const row = document.getElementById("Row");
-    const cardsContainer= document.getElementById("cards-container");
     row.innerHTML='';
-    // console.log(cardsContainer);
-    // console.log(row);
-   
-    const cards = document.getElementById("cards");
     // console.log(cards);
     
     articles.forEach(element => {
-        if(!element.urlToImage){
-            return;
+       
+        const cards = document.createElement("div");
+        const alink = document.createElement("a");
+        alink.href=element.url;
+        alink.id='links'
+        const card = document.createElement("div");
+        const cardHeader = document.createElement("div");
+        const img = document.createElement("img");
+        const cardContent = document.createElement("div");
+        const h3 = document.createElement("h3");
+        const h6 = document.createElement("h6");
+        const p = document.createElement("p");
+        const classes = ["col-md-4", "col-sm-12"]
+        for (const i of classes) {
+            cards.classList.add(i);
         }
-        const cardClone = cards.cloneNode(true);
-        const router = document.getElementById("routing");
-        router.setAttribute("href",element.url)
-        // console.log(cardClone);
-        filldata(cardClone,element)
-        // console.log(cardClone);
-        row.appendChild(cardClone);
+        if (element.urlToImage) {
+            // document.body.appendChild(alink)
+            
+            cards.appendChild(alink);
+            alink.appendChild(card)
+            card.classList.add("card")
+            card.appendChild(cardHeader);
+            cardHeader.classList.add("card-header")
+            cardHeader.appendChild(img);
+            img.src = element.urlToImage
+            card.appendChild(cardContent);
+            cardContent.appendChild(h3);
+            h3.textContent = element.title
+            cardContent.appendChild(h6);
+            cardContent.appendChild(p);
+            p.textContent = element.description
+            row.appendChild(cards);
+        
+        }
     });
 }
 
-function filldata(cardClone, element){
-    const newsImg = cardClone.querySelector("#news-img");
-    const newsTitle = cardClone.querySelector("#news-title");
-    const newsSource = cardClone.querySelector("#news-source");
-    const newsDesc = cardClone.querySelector("#news-desc");
-    newsImg.src = element.urlToImage;
-    newsTitle.innerHTML = element.title;
-    newsDesc.innerHTML = element.description;
-    newsSource.innerHTML = element.source.name
-    
-}
+
 function onNavItemClick(id){
     fetchnews(id);
 }
